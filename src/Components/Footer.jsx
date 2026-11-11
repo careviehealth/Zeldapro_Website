@@ -52,10 +52,10 @@ export const Footer = () => {
             <div className="text-sm text-white/80">
               <span className="text-white/50">Email: </span>
               <a
-                href="mailto:connect@zeldapro.ai"
+                href="mailto:support@zeldapro.com"
                 className="font-mono text-[13.5px] text-white hover:text-blue-400 underline transition-colors"
               >
-                connect@zeldapro.ai
+                support@zeldapro.com
               </a>
             </div>
           </div>

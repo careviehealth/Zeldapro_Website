@@ -34,7 +34,7 @@ const LEGAL_CONFIG = {
   productDomain: 'carevie.in',
   corporateDomain: 'zeldapro.com',
   corporateWebsite: 'https://zeldapro.com',
-  corporateEmail: 'connect@zeldapro.ai',
+  corporateEmail: 'support@zeldapro.com',
   supportEmail: 'support@carevie.in',
   privacyEmail: 'privacy@carevie.in',
   grievanceEmail: 'grievance@zeldapro.com',

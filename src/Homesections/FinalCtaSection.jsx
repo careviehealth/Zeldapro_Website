@@ -43,10 +43,10 @@ export const FinalCtaSection = () => {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="mailto:connect@zeldapro.ai"
+              href="mailto:support@zeldapro.com"
               className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-[#1D4ED8] bg-white border border-blue-200 hover:bg-blue-50 transition-all duration-200 cursor-pointer"
             >
-              connect@zeldapro.ai
+              support@zeldapro.com
             </a>
           </div>
         </div>

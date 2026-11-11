@@ -27,7 +27,7 @@ export const Footer = ({ onOpenModal }) => {
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText('connect@zeldapro.ai');
+    navigator.clipboard.writeText('support@zeldapro.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2200);
   };
@@ -62,12 +62,12 @@ export const Footer = ({ onOpenModal }) => {
                   Email:{' '}
                 </span>
                 <a
-                  href="mailto:connect@zeldapro.ai"
+                  href="mailto:support@zeldapro.com"
                   onClick={handleCopyEmail}
                   className="font-mono-code font-normal text-[16px] leading-[14px] tracking-[0.88px] text-white underline underline-offset-4 hover:text-cyan-300 transition-colors flex items-center gap-1.5 cursor-pointer"
                   title="Click to copy email address"
                 >
-                  <span>connect@zeldapro.ai</span>
+                  <span>support@zeldapro.com</span>
                   {copiedEmail ? (
                     <span className="inline-flex items-center text-xs text-emerald-400 no-underline gap-1 ml-1">
                       <Check size={14} /> Copied

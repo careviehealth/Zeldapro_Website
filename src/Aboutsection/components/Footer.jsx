@@ -23,7 +23,7 @@ export const Footer = ({ onOpenConnect, onOpenArchive }) => {
   }, []);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('connect@zeldapro.ai');
+    navigator.clipboard.writeText('support@zeldapro.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -54,7 +54,7 @@ export const Footer = ({ onOpenConnect, onOpenArchive }) => {
                 title="Click to copy email address"
               >
                 <span className="text-neutral-500">Email:</span>
-                <span className="text-blue-400 group-hover:underline">connect@zeldapro.ai</span>
+                <span className="text-blue-400 group-hover:underline">support@zeldapro.com</span>
                 {copied ? (
                   <Check className="w-4 h-4 text-emerald-400" />
                 ) : (

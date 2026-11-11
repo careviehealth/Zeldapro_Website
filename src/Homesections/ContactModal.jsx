@@ -132,7 +132,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-xs text-slate-400 font-mono">
                   <Mail className="w-3.5 h-3.5 text-blue-400" />
-                  <span>direct: connect@zeldapro.ai</span>
+                  <span>direct: support@zeldapro.com</span>
                 </div>
 
                 <button

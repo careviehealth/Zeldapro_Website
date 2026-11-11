@@ -104,7 +104,7 @@ export const NavModals = ({ type, payload, onClose, onNavigateToContact }) => {
                 </div>
                 <div>
                   <span className="text-slate-500 block">CONTACT</span>
-                  <span className="text-cyan-400 font-medium">connect@zeldapro.ai</span>
+                  <span className="text-cyan-400 font-medium">support@zeldapro.com</span>
                 </div>
               </div>
             </>
