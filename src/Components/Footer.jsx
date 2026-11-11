@@ -45,8 +45,7 @@ export const Footer = () => {
             </Link>
 
             <address className="not-italic text-sm leading-relaxed text-white/65 max-w-sm mb-4">
-              1st Floor, 1B-102 or 1B, Parinee Crescenzo, G Block, BKC, Bandra Kurla Complex,
-              Bandra East, Mumbai, Maharashtra, India
+              1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra
             </address>
 
             <div className="text-sm text-white/80">

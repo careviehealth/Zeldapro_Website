@@ -38,7 +38,7 @@ const LEGAL_CONFIG = {
   grievanceEmail: 'grievance@zeldapro.com',
   grievanceOfficer: 'Designated Grievance Officer, Zeldapro Consultancy Private Limited',
   registeredAddress:
-    '1st Floor, 1B-102 or 1B, Parinee Crescenzo, G Block, BKC, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051, India',
+    '1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra',
   effectiveDate: 'May 26, 2026',
   lastUpdated: 'November 11, 2026',
   version: '2.4.0',
@@ -136,22 +136,6 @@ export default function PrivacyPolicy() {
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
             <span className="text-blue-400 font-semibold">PRIVACY POLICY</span>
           </nav>
-
-          {/* Compliance Badges */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider font-medium bg-blue-500/15 border border-blue-400/30 text-blue-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-              APPLE APP STORE GUIDELINE 5.1 COMPLIANT
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider font-medium bg-emerald-500/15 border border-emerald-400/30 text-emerald-300">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              INDIA DPDP ACT 2023 & SPDI RULES
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider font-medium bg-purple-500/15 border border-purple-400/30 text-purple-300">
-              <Lock className="w-3.5 h-3.5 text-purple-400" />
-              AES-256 AT-REST & TLS 1.3 IN-TRANSIT
-            </span>
-          </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white mb-4">
             Privacy Policy & Health Data Protection Protocol

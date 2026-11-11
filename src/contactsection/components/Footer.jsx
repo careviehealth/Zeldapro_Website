@@ -52,7 +52,7 @@ export const Footer = ({ onOpenModal }) => {
           <div className="xl:col-span-5 flex flex-col justify-between">
             <div className="max-w-[384px]">
               <p className="font-manrope font-normal text-[16px] leading-[23px] text-white">
-                1st Floor, 1B-102 or 1B, Parinee Crescenzo, G Block, BKC, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra, India
+                1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra
               </p>
             </div>
 

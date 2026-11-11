@@ -43,7 +43,7 @@ export const Footer = ({ onOpenConnect, onOpenArchive }) => {
               </div>
 
               <p className="font-['JetBrains_Mono'] text-[13px] sm:text-[14px] leading-[22px] text-neutral-400 max-w-[340px]">
-                1st Floor, 1B-102 or 1B, Parinee Crescenzo, G Block, BKC, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra, India
+                1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra
               </p>
             </div>
 

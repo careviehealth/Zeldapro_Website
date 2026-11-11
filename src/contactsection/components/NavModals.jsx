@@ -84,7 +84,7 @@ export const NavModals = ({ type, payload, onClose, onNavigateToContact }) => {
           {type === 'about' && (
             <>
               <p>
-                <strong>ZeldaPro Research Lab (ELDAPR)</strong> is an advanced applied computational research facility headquartered at Parinee Crescenzo in Bandra Kurla Complex (BKC), Mumbai.
+                <strong>ZeldaPro Research Lab (ELDAPR)</strong> is an advanced applied computational research facility headquartered at 1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra.
               </p>
               <p>
                 Founded by systems architects and machine learning engineers, the lab focuses on the convergence of <strong>distributed edge computing, high-density neural models, and secure IoT networks</strong>.
@@ -206,7 +206,7 @@ export const NavModals = ({ type, payload, onClose, onNavigateToContact }) => {
                 We do not monetize, harvest, or disseminate contact information. Inquiries sent via the Contact Bureau are used exclusively to evaluate bilateral engineering collaborations and technical research inquiries.
               </p>
               <p className="text-xs text-slate-400">
-                Data controllers: ZeldaPro Research Lab, Parinee Crescenzo 1B-102, Bandra Kurla Complex, Bandra East, Mumbai, MH, India.
+                Data controllers: ZeldaPro Research Lab, 1st FLR/102, C-38-39, PARINEE CRESCENZO, Bandra(East), Mumbai, Mumbai- 400051, Maharashtra.
               </p>
               <div className="pt-2">
                 <Link
