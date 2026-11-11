@@ -21,6 +21,8 @@ import {
   ChevronRight,
   ArrowUp,
   Search,
+  X,
+  List,
 } from 'lucide-react';
 import { Footer } from '../Components/Footer';
 
@@ -73,12 +75,15 @@ export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState('overview');
   const [searchQuery, setSearchQuery] = useState('');
   const [copiedEmail, setCopiedEmail] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const sectionRefs = useRef({});
 
   // Active section tracking on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140;
+      setShowBackToTop(window.scrollY > 350);
 
       for (let i = SECTIONS.length - 1; i >= 0; i--) {
         const section = SECTIONS[i];
@@ -104,6 +109,7 @@ export default function PrivacyPolicy() {
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveSection(id);
+      setMobileMenuOpen(false);
     }
   };
 
@@ -124,24 +130,24 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-blue-600 selection:text-white flex flex-col">
       {/* Top Header / Breadcrumb Hero */}
-      <section className="bg-gradient-to-b from-[#0B1220] via-[#0F172A] to-[#1E293B] text-white pt-12 pb-14 border-b border-white/10">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
+      <section className="bg-gradient-to-b from-[#0B1220] via-[#0F172A] to-[#1E293B] text-white pt-10 pb-12 sm:pt-14 sm:pb-16 border-b border-white/10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+          <nav className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-5 sm:mb-6 overflow-x-auto whitespace-nowrap">
             <Link to="/" className="hover:text-blue-400 transition-colors">
               HOME
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />
             <span className="text-slate-400">LEGAL COMPLIANCE</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />
             <span className="text-blue-400 font-semibold">PRIVACY POLICY</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white mb-4">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white mb-3 sm:mb-4">
             Privacy Policy & Health Data Protection Protocol
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed mb-8">
+          <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-3xl leading-relaxed mb-6 sm:mb-8">
             Governing the personal, technical, and health data processing practices of{' '}
             <strong className="text-white font-semibold">{LEGAL_CONFIG.companyName}</strong>,
             its corporate digital infrastructure, and its flagship digital health platform and
@@ -149,10 +155,10 @@ export default function PrivacyPolicy() {
           </p>
 
           {/* Quick Meta Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs font-mono text-slate-400">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-white/10 text-xs font-mono text-slate-400">
             <div>
               <span className="block text-slate-500 text-[10px] uppercase">Legal Entity</span>
-              <span className="text-white font-medium">{LEGAL_CONFIG.companyName}</span>
+              <span className="text-white font-medium break-words">{LEGAL_CONFIG.companyName}</span>
             </div>
             <div>
               <span className="block text-slate-500 text-[10px] uppercase">Product Covered</span>
@@ -164,16 +170,16 @@ export default function PrivacyPolicy() {
             </div>
             <div>
               <span className="block text-slate-500 text-[10px] uppercase">Jurisdiction</span>
-              <span className="text-slate-200">{LEGAL_CONFIG.jurisdiction}</span>
+              <span className="text-slate-200 break-words">{LEGAL_CONFIG.jurisdiction}</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4 Apple App Store & Trust Highlights Cards */}
-      <section className="relative -mt-6 z-10 max-w-[1240px] mx-auto px-6 sm:px-10 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+      <section className="relative -mt-5 sm:-mt-6 z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-3">
               <EyeOff className="w-5 h-5" />
             </div>
@@ -186,7 +192,7 @@ export default function PrivacyPolicy() {
             </p>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mb-3">
               <HeartPulse className="w-5 h-5" />
             </div>
@@ -199,7 +205,7 @@ export default function PrivacyPolicy() {
             </p>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-10 h-10 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 mb-3">
               <Smartphone className="w-5 h-5" />
             </div>
@@ -212,7 +218,7 @@ export default function PrivacyPolicy() {
             </p>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-10 h-10 rounded-lg bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-600 mb-3">
               <Trash2 className="w-5 h-5" />
             </div>
@@ -228,10 +234,10 @@ export default function PrivacyPolicy() {
       </section>
 
       {/* Main Content Body: Sticky Sidebar + Structured Document */}
-      <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-12 w-full flex-1">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Sticky Sidebar (Table of Contents) */}
-          <aside className="lg:col-span-4 sticky top-24 space-y-4">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12 w-full flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* Left Sticky Sidebar (Table of Contents - Desktop Only) */}
+          <aside className="hidden lg:block lg:col-span-4 sticky top-24 space-y-4">
             <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
                 <span className="font-mono text-xs font-semibold tracking-wider uppercase text-slate-500">
@@ -337,7 +343,24 @@ export default function PrivacyPolicy() {
           </aside>
 
           {/* Right Main Legal Document */}
-          <main className="lg:col-span-8 bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm text-slate-700 space-y-12">
+          <main className="lg:col-span-8 bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 shadow-sm text-slate-700 space-y-10 sm:space-y-12">
+            {/* Mobile Inline Quick Index Trigger */}
+            <div className="lg:hidden p-3.5 bg-blue-50/80 border border-blue-100 rounded-2xl flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <List className="w-4 h-4 text-blue-600 shrink-0" />
+                <span className="text-xs font-semibold text-slate-900">
+                  Document Index ({SECTIONS.length} Sections)
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(true)}
+                className="text-xs font-mono font-medium text-blue-600 hover:text-blue-700 underline cursor-pointer"
+              >
+                Browse &rarr;
+              </button>
+            </div>
+
             {/* SECTION 1: OVERVIEW */}
             <section
               id="overview"
@@ -708,8 +731,96 @@ export default function PrivacyPolicy() {
                 minimum device capabilities necessary to execute core user-requested actions:
               </p>
 
-              <div className="overflow-x-auto border border-slate-200 rounded-2xl mb-6">
-                <table className="w-full text-left text-xs border-collapse">
+              {/* Mobile View: Permission Cards */}
+              <div className="sm:hidden space-y-3 mb-6">
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 text-[11px]">
+                      NSCameraUsageDescription
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase">Camera</span>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Purpose:</strong>
+                    <p className="text-slate-600 leading-relaxed">
+                      Capturing images of paper prescriptions, lab reports, and medical bills directly from device camera.
+                    </p>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Restrictions:</strong>
+                    <p className="text-slate-500 leading-relaxed">
+                      Camera active strictly while capture UI is open. Stored directly to private vault; no background camera access.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 text-[11px]">
+                      NSPhotoLibraryUsageDescription
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase">Photos</span>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Purpose:</strong>
+                    <p className="text-slate-600 leading-relaxed">
+                      Browsing and selecting existing medical report photographs, scan images, or PDF receipts from Photo Library.
+                    </p>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Restrictions:</strong>
+                    <p className="text-slate-500 leading-relaxed">
+                      Access is strictly limited to files you explicitly pick. We do not index, scan, or transmit unselected media.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 text-[11px]">
+                      NSFaceIDUsageDescription
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase">Biometrics</span>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Purpose:</strong>
+                    <p className="text-slate-600 leading-relaxed">
+                      Provides local on-device biometric app lock/unlock for enhanced health record confidentiality.
+                    </p>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Restrictions:</strong>
+                    <p className="text-slate-500 leading-relaxed">
+                      Processed exclusively by Apple’s LocalAuthentication in device Secure Enclave. We never access, capture, or store facial or fingerprint data.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 text-[11px]">
+                      Push Notifications (APNs)
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase">Alerts</span>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Purpose:</strong>
+                    <p className="text-slate-600 leading-relaxed">
+                      Delivers medication reminders, CareCircle sharing notifications, and critical security login alerts.
+                    </p>
+                  </div>
+                  <div>
+                    <strong className="text-slate-900 block text-[11px] mb-0.5">Restrictions:</strong>
+                    <p className="text-slate-500 leading-relaxed">
+                      We never transmit medical records or diagnosis text through push notification payloads. Can be disabled anytime in iOS Settings.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tablet & Desktop: Table View */}
+              <div className="hidden sm:block overflow-x-auto border border-slate-200 rounded-2xl mb-6">
+                <table className="w-full min-w-[580px] text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-slate-100 text-slate-900 font-mono border-b border-slate-200">
                       <th className="p-3">iOS Permission Key</th>
@@ -1507,6 +1618,103 @@ export default function PrivacyPolicy() {
           </main>
         </div>
       </div>
+
+      {/* Mobile Floating Sticky Index Bar */}
+      <div className="fixed bottom-4 left-4 right-4 z-40 lg:hidden flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(true)}
+          className="flex-1 bg-slate-900/95 text-white border border-slate-700/80 px-4 py-3 rounded-2xl shadow-2xl backdrop-blur-md flex items-center justify-between text-xs font-medium cursor-pointer"
+        >
+          <div className="flex items-center gap-2 truncate">
+            <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+            <span className="text-slate-400 font-mono text-[10px] uppercase shrink-0">INDEX</span>
+            <span className="truncate text-white font-medium">
+              {SECTIONS.find((s) => s.id === activeSection)?.title || '1. Overview'}
+            </span>
+          </div>
+          <ChevronRight className="w-4 h-4 text-blue-400 shrink-0 rotate-90" />
+        </button>
+
+        {showBackToTop && (
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl shadow-xl flex items-center justify-center shrink-0 transition-transform active:scale-95 cursor-pointer"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </button>
+        )}
+      </div>
+
+      {/* Mobile Drawer Modal for Table of Contents */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Drawer Sheet */}
+          <div className="relative bg-white rounded-t-3xl border-t border-slate-200 p-5 shadow-2xl max-h-[82vh] flex flex-col z-10 animate-in slide-in-from-bottom duration-200">
+            {/* Header */}
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-600" />
+                <h3 className="font-display font-bold text-slate-900 text-sm">
+                  Document Index ({SECTIONS.length} Sections)
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900 cursor-pointer"
+                aria-label="Close index"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Search */}
+            <div className="relative mb-3">
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Search policy sections..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-8 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Section list */}
+            <nav className="overflow-y-auto space-y-1.5 pr-1 text-xs max-h-[50vh]">
+              {filteredSections.map((section) => (
+                <button
+                  key={section.id}
+                  type="button"
+                  onClick={() => scrollToSection(section.id)}
+                  className={`w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-between cursor-pointer ${
+                    activeSection === section.id
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm'
+                      : 'text-slate-700 hover:bg-slate-100'
+                  }`}
+                >
+                  <span className="truncate">{section.title}</span>
+                  {activeSection === section.id && (
+                    <Check className="w-3.5 h-3.5 shrink-0 ml-1 text-white" />
+                  )}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+
+      {/* Spacer for mobile bottom bar */}
+      <div className="h-16 lg:hidden" />
 
       {/* Global Footer */}
       <Footer />

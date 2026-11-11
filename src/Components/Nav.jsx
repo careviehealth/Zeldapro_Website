@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import logo from '../assets/Zeldalogo.png';
@@ -33,15 +33,15 @@ export const Navbar = ({ onOpenContact }) => {
     { name: 'Home', to: '/' },
     { name: 'About', to: '/about' },
     { name: 'Services', to: '/services' },
+    { name: 'Product', to: '/product' },
     { name: 'Contact', to: '/contact' },
   ];
 
   return (
     <header
       id="site-header"
-      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ease-in-out border-b border-blue-900/10 bg-[#f0f4fc]/90 ${
-        scrolled ? 'shadow-md shadow-blue-950/10 bg-[#f0f4fc]/95' : ''
-      } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ease-in-out border-b border-blue-900/10 bg-[#f0f4fc]/90 ${scrolled ? 'shadow-md shadow-blue-950/10 bg-[#f0f4fc]/95' : ''
+        } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="max-w-[1240px] mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Brand Logo */}
@@ -61,10 +61,9 @@ export const Navbar = ({ onOpenContact }) => {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `text-[15px] font-medium transition-all duration-200 ${
-                    isActive
-                      ? 'text-blue-700 font-semibold'
-                      : 'text-slate-700 hover:text-blue-600'
+                  `text-[15px] font-medium transition-all duration-200 ${isActive
+                    ? 'text-blue-700 font-semibold'
+                    : 'text-slate-700 hover:text-blue-600'
                   }`
                 }
               >

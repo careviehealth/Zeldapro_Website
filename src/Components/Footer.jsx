@@ -7,6 +7,7 @@ const ROUTES = {
   home: '/',
   about: '/about',
   services: '/services',
+  product: '/product',
   contact: '/contact',
   privacy: '/privacy-policy',
 };
@@ -104,6 +105,15 @@ export const Footer = () => {
                 </Link>
               </li>
 
+              <li>
+                <Link
+                  to={ROUTES.product}
+                  onClick={scrollTop}
+                  className="hover:text-white transition-colors"
+                >
+                  Product
+                </Link>
+              </li>
               <li>
                 <Link
                   to={ROUTES.contact}

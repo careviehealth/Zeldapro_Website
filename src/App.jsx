@@ -11,6 +11,7 @@ import About from './Pages/About.jsx';
 import Service from './Pages/Service.jsx';
 import Contact from './Pages/Contact.jsx';
 import PrivacyPolicy from './Pages/PrivacyPolicy.jsx';
+import CarevieProduct from './Pages/CarevieProduct.jsx';
 
 // Scrolls to the top whenever the page changes
 function ScrollToTop() {
@@ -34,6 +35,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Service />} />
+        <Route path="/carevie" element={<CarevieProduct />} />
+        <Route path="/product" element={<CarevieProduct />} />
+        <Route path="/products" element={<CarevieProduct />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
