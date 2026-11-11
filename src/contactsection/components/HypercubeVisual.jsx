@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Kept the original export name so existing imports don't break.
 // `PolyhedronVisual` is an alias if you'd rather rename it at the call site.
@@ -472,14 +472,34 @@ export const HypercubeVisual = () => {
       ctx.lineTo(width, height - 1);
       ctx.stroke();
 
+      if (!isVisible) {
+        animationFrameId = null;
+        return;
+      }
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    let isVisible = true;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animationFrameId) {
+          animationFrameId = requestAnimationFrame(render);
+        } else if (!isVisible && animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      },
+      { threshold: 0.05 }
+    );
+    io.observe(canvas);
+
+    animationFrameId = requestAnimationFrame(render);
 
     return () => {
+      io.disconnect();
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

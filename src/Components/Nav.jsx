@@ -10,19 +10,26 @@ export const Navbar = ({ onOpenContact }) => {
   const lastScrollY = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setScrolled(currentScrollY > 20);
 
-      if (mobileMenuOpen) {
-        setHidden(false);
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        setHidden(true); // scrolling down
-      } else {
-        setHidden(false); // scrolling up
+          if (mobileMenuOpen) {
+            setHidden(false);
+          } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+            setHidden(true); // scrolling down
+          } else {
+            setHidden(false); // scrolling up
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

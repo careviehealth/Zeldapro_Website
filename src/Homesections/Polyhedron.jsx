@@ -199,8 +199,12 @@ export const Polyhedron = ({ className = '' }) => {
     canvas.addEventListener('pointercancel', up);
     canvas.addEventListener('pointermove', move);
 
-    let raf = 0, last = performance.now(), acc = 0;
+    let raf = 0, last = performance.now(), acc = 0, isVisible = true;
     const tick = (now) => {
+      if (!isVisible) {
+        raf = 0;
+        return;
+      }
       raf = requestAnimationFrame(tick);
       const dt = Math.min((now - last) / 1000, 0.1);
       last = now; acc += dt; T = now / 1000;
@@ -210,9 +214,27 @@ export const Polyhedron = ({ className = '' }) => {
     };
     zap();
     resize();
+
+    // Pause WebGL rendering loop when scrolled offscreen to eliminate idle CPU/GPU load
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !raf && !still) {
+          last = performance.now();
+          raf = requestAnimationFrame(tick);
+        } else if (!isVisible && raf) {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      },
+      { threshold: 0.05 }
+    );
+    io.observe(mount);
+
     if (!still) raf = requestAnimationFrame(tick);
 
     return () => {
+      io.disconnect();
       cancelAnimationFrame(raf);
       ro.disconnect();
       canvas.removeEventListener('pointerdown', down);

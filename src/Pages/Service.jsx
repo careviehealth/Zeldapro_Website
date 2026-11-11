@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Navbar } from '../Components/Nav.jsx';
 import { WebDevShowcase } from '../Servicesection/components/WebDevShowcase.jsx';
 import { AppDevShowcase } from '../Servicesection/components/AppDevShowcase.jsx';
 import { AiShowcase } from '../Servicesection/components/AiShowcase.jsx';
@@ -10,7 +9,7 @@ import { ServiceDetailModal } from '../Servicesection/components/ServiceDetailMo
 import { ContactModal } from '../Servicesection/components/ContactModal.jsx';
 import { Footer } from '../Components/Footer.jsx';
 import { servicesData } from '../Servicesection/data/servicesData.js';
-import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { CtaBanner } from '../Servicesection/components/CtaBanner.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -393,9 +392,9 @@ export default function App() {
         {/* High-Intent Strategic Engagement Block */}
         
       </main>
-<CtaBanner
-                  onStartProject={() => handleOpenConnect('New Project Scoping')}
-        />
+      <CtaBanner
+        onStartProject={() => openContactWithService('New Project Scoping')}
+      />
       {/* Global Footer */}
       <Footer onContactClick={() => setContactOpen(true)} />
 

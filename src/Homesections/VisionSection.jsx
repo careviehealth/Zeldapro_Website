@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import visionImage from '../assets/Archetecturingdata.png';
-import visionImage2 from '../assets/digitaltransformation.png';
+import visionImage from '../assets/Archetecturingdata.jpg';
+import visionImage2 from '../assets/digitaltransformation.jpg';
 gsap.registerPlugin(ScrollTrigger);
 
 export const VisionSection = () => {
@@ -107,6 +107,7 @@ export const VisionSection = () => {
               alt="Server room data center cabling, representing digital infrastructure"
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -122,6 +123,7 @@ export const VisionSection = () => {
               alt="Abstract flowing blue and purple gradient, representing design-led digital architecture"
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
 
