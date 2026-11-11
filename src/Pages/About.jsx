@@ -35,10 +35,10 @@ export default function App() {
         <WhoWeAreSection />
 
         {/* 3. "The People Behind The Screen" Section (Hierarchical Team Tree with animated curved SVG lines) */}
-        <TeamTreeSection />
+        {/* <TeamTreeSection /> */}
 
-        {/* 4. "Why Trust us?" Section (Rectangle 90: #E2E8F0, Gradient title, 3 Staggered Stat Cards with GSAP counters) */}
-        <WhyTrustUsSection />
+        {/* 4. "Why Trust us?" / Partners Section */}
+        {/* <WhyTrustUsSection /> */}
 
         {/* 5. "Your vision. Our engineering." Banner (Group 34: #E2E8F0, Plexus mesh canvas, Start Project CTA) */}
         <CtaBanner

@@ -29,7 +29,7 @@ function Home() {
         <ManifestoSection />
         <ProcessSection />
         <ServicesSection onOpenContact={() => setContactOpen(true)} />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FaqSection />
         <FinalCtaSection onOpenContact={() => setContactOpen(true)} />
       </main>
