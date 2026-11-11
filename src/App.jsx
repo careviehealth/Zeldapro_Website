@@ -10,6 +10,7 @@ import Home from './Pages/Home.jsx';
 import About from './Pages/About.jsx';
 import Service from './Pages/Service.jsx';
 import Contact from './Pages/Contact.jsx';
+import PrivacyPolicy from './Pages/PrivacyPolicy.jsx';
 
 // Scrolls to the top whenever the page changes
 function ScrollToTop() {
@@ -34,6 +35,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
 
       {/* <Footer /> */}

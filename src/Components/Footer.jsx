@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Zeldalogo.png';
 
@@ -8,6 +8,7 @@ const ROUTES = {
   about: '/about',
   services: '/services',
   contact: '/contact',
+  privacy: '/privacy-policy',
 };
 
 const disciplines = [
@@ -113,6 +114,15 @@ export const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  to={ROUTES.privacy}
+                  onClick={scrollTop}
+                  className="hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -121,9 +131,18 @@ export const Footer = () => {
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-white/50">
           <div>&copy; 2026 Zeldapro Consultancy Pvt Ltd. ALL RIGHTS RESERVED.</div>
           <div className="flex flex-wrap items-center gap-6 text-[11px]">
-            <span className="hover:text-white cursor-pointer transition-colors">
-              PRIVACY PROTOCOL
-            </span>
+            {currentUtcTime && (
+              <span className="text-white/40 hidden md:inline">
+                SYS.TIME: {currentUtcTime}
+              </span>
+            )}
+            <Link
+              to={ROUTES.privacy}
+              onClick={scrollTop}
+              className="hover:text-white cursor-pointer transition-colors"
+            >
+              PRIVACY POLICY
+            </Link>
           </div>
         </div>
       </div>

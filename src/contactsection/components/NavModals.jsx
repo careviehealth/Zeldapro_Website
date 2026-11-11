@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { X, ShieldCheck, Cpu, Network, Radio, ArrowRight } from 'lucide-react';
 
 export const NavModals = ({ type, payload, onClose, onNavigateToContact }) => {
@@ -207,6 +208,15 @@ export const NavModals = ({ type, payload, onClose, onNavigateToContact }) => {
               <p className="text-xs text-slate-400">
                 Data controllers: ZeldaPro Research Lab, Parinee Crescenzo 1B-102, Bandra Kurla Complex, Bandra East, Mumbai, MH, India.
               </p>
+              <div className="pt-2">
+                <Link
+                  to="/privacy-policy"
+                  onClick={onClose}
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-mono underline"
+                >
+                  View Full Privacy Policy (DPDP & Apple Compliance) &rarr;
+                </Link>
+              </div>
             </>
           )}
         </div>
